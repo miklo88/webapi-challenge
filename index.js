@@ -12,3 +12,18 @@ I need this code, just don't know where, perhaps should make some middleware, do
 
 Go code!
 */
+
+const express = require("express");
+
+const port = 5000;
+
+const server = express();
+server.use(express.json());
+
+server.get("/", (req, res) => {
+  res.send("Hello from Carl's API on the server side!");
+});
+
+server.listen(port, () => {
+  console.log(`server listening on port ${port}`);
+});
