@@ -12,3 +12,14 @@ I need this code, just don't know where, perhaps should make some middleware, do
 
 Go code!
 */
+
+const express = require('express');
+
+const server = express();
+const port = 5000;
+
+server.use('/', (req, res) => {
+    res.send(Carls API is a go!)
+})
+
+server.listen(`${port}`)
