@@ -13,13 +13,17 @@ I need this code, just don't know where, perhaps should make some middleware, do
 Go code!
 */
 
-const express = require('express');
+const express = require("express");
 
-const server = express();
 const port = 5000;
 
-server.use('/', (req, res) => {
-    res.send(Carls API is a go!)
-})
+const server = express();
+server.use(express.json());
 
-server.listen(`${port}`)
+server.get("/", (req, res) => {
+  res.send("Hello from Carl's API on the server side!");
+});
+
+server.listen(port, () => {
+  console.log(`server listening on port ${port}`);
+});
