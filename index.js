@@ -20,8 +20,18 @@ const port = 5000;
 const server = express();
 server.use(express.json());
 
+// server.get("/", (req, res) => {
+//   res.send("Hello from Carl's API on the server side!");
+// });
+// establish dymanic routing.
+
+// this request handler executes when making a GET request to /route
 server.get("/", (req, res) => {
-  res.send("Hello from Carl's API on the server side!");
+  res.status(200).send("<h1>Homepage</h1>");
+});
+
+server.get("/", (req, res) => {
+  res.status(200).send("<h1>Project Form</h1>");
 });
 
 server.listen(port, () => {
