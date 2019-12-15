@@ -27,14 +27,65 @@ server.use(express.json());
 
 // this request handler executes when making a GET request to /route
 server.get("/", (req, res) => {
-  res.status(200).json({ message: "homepage" });
-});
-
-server.get("/projects", (req, res) => {
   res
     .status(200)
-    .json({ url: "/projects", message: "project form page", operation: "GET" });
+    .json({ url: "/", message: "server homepage", operation: "GET" });
 });
+server.get("/projects", (req, res) => {
+  res.status(200).json({
+    url: "/projects",
+    message: "homepage of what client sees",
+    operation: "GET"
+  });
+}); // READ / GET
+
+server.post("/projects", (req, res) => {
+  res.status(201).json({
+    url: "/projects",
+    message: "post a project",
+    operation: "POST"
+  });
+}); // CREATE
+
+server.put("/projects", (req, res) => {
+  res.status(200).json({
+    url: "/projects",
+    message: "update a project",
+    operation: "PUT"
+  });
+}); // UPDATE
+
+server.delete("/projects", (req, res) => {
+  res.status(204).json({ message: "deleted", operation: "DELETE" });
+}); // DELETE
+
+server.get("/actions", (req, res) => {
+  res.status(200).json({
+    url: "/actions",
+    message: "homepage of what client sees",
+    operation: "GET"
+  });
+}); // READ / GET
+
+server.post("/actions", (req, res) => {
+  res.status(201).json({
+    url: "/actions",
+    message: "post a project",
+    operation: "POST"
+  });
+}); // CREATE
+
+server.put("/actions", (req, res) => {
+  res.status(200).json({
+    url: "/actions",
+    message: "update a project",
+    operation: "PUT"
+  });
+}); // UPDATE
+
+server.delete("/actions", (req, res) => {
+  res.status(204).json({ message: "deleted", operation: "DELETE" });
+}); // DELETE
 
 server.listen(port, () => {
   console.log(`server listening on port ${port}`);
