@@ -30,7 +30,7 @@ server.get("/", (req, res) => {
   res.status(200).send("<h1>Homepage</h1>");
 });
 
-server.get("/", (req, res) => {
+server.get("/projects", (req, res) => {
   res.status(200).send("<h1>Project Form</h1>");
 });
 
