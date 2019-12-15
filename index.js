@@ -27,11 +27,13 @@ server.use(express.json());
 
 // this request handler executes when making a GET request to /route
 server.get("/", (req, res) => {
-  res.status(200).send("<h1>Homepage</h1>");
+  res.status(200).json({ message: "homepage" });
 });
 
 server.get("/projects", (req, res) => {
-  res.status(200).send("<h1>Project Form</h1>");
+  res
+    .status(200)
+    .json({ url: "/projects", message: "project form page", operation: "GET" });
 });
 
 server.listen(port, () => {
