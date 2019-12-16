@@ -15,11 +15,6 @@ router.get("/", (req, res) => {
         message: "Error 500"
       });
     });
-  // res.status(200).json({
-  //   url: "/projects",
-  //   message: "homepage of projects GET endpoint",
-  //   operation: "GET"
-  // });
 }); // READ / GET
 
 router.get("/:id", (req, res) => {

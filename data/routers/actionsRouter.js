@@ -1,12 +1,20 @@
 const express = require("express");
+
 const router = express.Router();
-// actions CRUD ---move out of here getting to cluttery. same with projects
+
+const Actions = require("../helpers/actionModel");
+// ACTIONS CRUD
 router.get("/", (req, res) => {
-  res.status(200).json({
-    url: "/actions",
-    message: "homepage of actions GET endpoint",
-    operation: "GET"
-  });
+  Actions.get()
+    .then(actions => {
+      res.status(200).json(actions);
+    })
+    .catch(err => {
+      res.status(500).json({
+        error: "Error req, server",
+        message: "Error 500"
+      });
+    });
 }); // READ / GET
 
 router.get("/:id", (req, res) => {
