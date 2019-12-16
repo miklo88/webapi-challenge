@@ -1,23 +1,32 @@
 const express = require("express");
 const router = express.Router();
 // actions CRUD ---move out of here getting to cluttery. same with projects
-server.get("/actions", (req, res) => {
+router.get("/", (req, res) => {
   res.status(200).json({
     url: "/actions",
-    message: "homepage of client projects",
+    message: "homepage of actions GET endpoint",
     operation: "GET"
   });
 }); // READ / GET
 
-server.post("/actions", (req, res) => {
+router.get("/:id", (req, res) => {
+  const id = req.params.id;
+  res.status(200).json({
+    url: "/actions",
+    message: `homepage of actions project GET endpoint`,
+    operation: "GET"
+  });
+});
+
+router.post("/", (req, res) => {
   res.status(201).json({
     url: "/actions",
-    message: "post a project",
+    message: "POST a project",
     operation: "POST"
   });
 }); // CREATE
 
-server.put("/actions", (req, res) => {
+router.put("/", (req, res) => {
   res.status(200).json({
     url: "/actions",
     message: "update a project",
@@ -25,8 +34,10 @@ server.put("/actions", (req, res) => {
   });
 }); // UPDATE
 
-server.delete("/actions/:id", (req, res) => {
+router.delete("/:id", (req, res) => {
   const id = req.params.id;
   console.log(req.params); // to see data implemented when console.log(). ex id = user
   res.status(204);
 }); // DELETE
+
+module.exports = router;
