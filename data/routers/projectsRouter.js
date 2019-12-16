@@ -17,7 +17,7 @@ router.get("/", (req, res) => {
         message: "Error 500"
       });
     });
-}); // READ / GET 0
+}); // READ / GET
 
 router.get(`/:id`, (req, res) => {
   Projects.get(req.params.id)
@@ -26,7 +26,8 @@ router.get(`/:id`, (req, res) => {
     })
     .catch(err => {
       res.status(500).json({
-        error: "Error req projects - GET server"
+        error: "Error req projects - GET server",
+        message: "Error 500"
       });
     });
 }); // READ / GET 1
