@@ -1,12 +1,25 @@
 const express = require("express");
+
 const router = express.Router();
+
+const Projects = require("../helpers/projectModel");
 // PROJECTS CRUD
 router.get("/", (req, res) => {
-  res.status(200).json({
-    url: "/projects",
-    message: "homepage of projects GET endpoint",
-    operation: "GET"
-  });
+  Projects.get()
+    .then(projects => {
+      res.status(200).json(projects);
+    })
+    .catch(err => {
+      res.status(500).json({
+        error: "Error req, server",
+        message: "Error 500"
+      });
+    });
+  // res.status(200).json({
+  //   url: "/projects",
+  //   message: "homepage of projects GET endpoint",
+  //   operation: "GET"
+  // });
 }); // READ / GET
 
 router.get("/:id", (req, res) => {
