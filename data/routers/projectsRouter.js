@@ -69,9 +69,9 @@ router.put("/", (req, res) => {
 }); // UPDATE ON THE BODY OBJECT
 
 router.delete("/", (req, res) => {
-  res.status(204).json({
+  res.status(205).json({
     url: "/projects",
-    message: "deleted",
+    message: "deleted - projects",
     operation: "DELETE"
   });
 }); // DELETE TEST ON 204
