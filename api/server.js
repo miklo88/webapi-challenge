@@ -5,8 +5,8 @@ const helmet = require("helmet");
 const server = express();
 
 // ROUTER IMPORTS FOR ROUTERS
-const actionsRouter = require("./data/routers/actionsRouter");
-const projectsRouter = require("./data/routers/projectsRouter");
+const actionsRouter = require("../data/routers/actionsRouter");
+const projectsRouter = require("../data/routers/projectsRouter");
 
 //GLOBAL MIDDLEWARE
 server.use(express.json());
