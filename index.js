@@ -12,7 +12,6 @@ I need this code, just don't know where, perhaps should make some middleware, do
 
 Go code!
 */
-
 const express = require("express");
 
 const port = 5000;
@@ -25,13 +24,13 @@ server.use(express.json());
 // });
 // establish dymanic routing.
 
-// this request handler executes when making a GET request to /route
+// this request handler executes when making a GET request to "/
 server.get("/", (req, res) => {
-  res.status(200).send("<h1>Homepage</h1>");
-});
-
-server.get("/", (req, res) => {
-  res.status(200).send("<h1>Project Form</h1>");
+  res.status(200).json({
+    url: "/",
+    message: "server homepage",
+    operation: "GET"
+  });
 });
 
 server.listen(port, () => {
