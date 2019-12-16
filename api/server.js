@@ -23,8 +23,10 @@ server.get("/", (req, res) => {
   res.status(200).json({
     url: "/",
     message: "Welcome to Carl's Server",
+    messageOfTheDay: process.env.MOTD,
+    aboutMe: process.env.AM,
     operation: "GET"
   });
-});
+}); // ENDPOINTS
 
 module.exports = server;

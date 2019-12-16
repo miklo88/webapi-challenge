@@ -56,9 +56,9 @@ router.put("/", (req, res) => {
 }); // UPDATE
 
 router.delete("/", (req, res) => {
-  res.status(204).json({
+  res.status(205).json({
     url: "/actions",
-    message: "deleted",
+    message: "deleted - actions",
     operation: "DELETE"
   });
 }); // DELETE
