@@ -11,18 +11,22 @@ router.get("/", (req, res) => {
     })
     .catch(err => {
       res.status(500).json({
-        error: "Error req, server",
+        error: "Error req - GET server",
         message: "Error 500"
       });
     });
 }); // READ / GET
 
 router.get("/:id", (req, res) => {
-  res.status(200).json({
-    url: "/projects",
-    message: "homepage of projects actions GET endpoint",
-    operation: "GET"
-  });
+  Projects.getProjectActions(req.params.id)
+    .then(project => {
+      res.status(200).json(project);
+    })
+    .catch(err => {
+      res.status(500).json({
+        error: "Error req projects - GET server"
+      });
+    });
 });
 
 router.post("/", (req, res) => {
