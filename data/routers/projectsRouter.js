@@ -75,7 +75,7 @@ router.delete("/", (req, res) => {
   });
 }); // DELETE TEST ON 204
 
-router.delete("/:id", (req, res) => {
+router.delete(`/:id`, (req, res) => {
   const id = req.params.id;
   console.log(req.params); // to see data implemented when console.log(). ex id = user
   Projects.remove(req.params.id)
@@ -88,7 +88,7 @@ router.delete("/:id", (req, res) => {
       console.log("Error req projects - DELETE server");
       res
         .status(500)
-        .json({ error: "Failed to delete req project - DELETE server" });
+        .json({ error: "Failed to erase req project - DELETE server" });
     });
 }); // DELETE
 
