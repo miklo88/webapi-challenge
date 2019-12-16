@@ -30,7 +30,7 @@ router.get(`/:id`, (req, res) => {
         message: "Error 500"
       });
     });
-}); // READ / GET
+}); // READ / GET 1
 
 // POST
 router.post("/", (req, res) => {
