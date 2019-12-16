@@ -34,10 +34,20 @@ router.put("/", (req, res) => {
   });
 }); // UPDATE
 
+router.delete("/", (req, res) => {
+  res.status(204).json({
+    url: "/actions",
+    message: "deleted",
+    operation: "DELETE"
+  });
+}); // DELETE
+
 router.delete("/:id", (req, res) => {
   const id = req.params.id;
   console.log(req.params); // to see data implemented when console.log(). ex id = user
-  res.status(204);
+  res.status(204).json({
+    url: "/actions"
+  });
 }); // DELETE
 
 module.exports = router;

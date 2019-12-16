@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-// projects CRUD
+// PROJECTS CRUD
 router.get("/", (req, res) => {
   res.status(200).json({
     url: "/projects",
@@ -34,7 +34,19 @@ router.put("/", (req, res) => {
 }); // UPDATE ON THE BODY OBJECT
 
 router.delete("/", (req, res) => {
-  res.status(204).json({ message: "deleted", operation: "DELETE" });
+  res.status(204).json({
+    url: "/projects",
+    message: "deleted",
+    operation: "DELETE"
+  });
+}); // DELETE
+
+router.delete("/:id", (req, res) => {
+  const id = req.params.id;
+  console.log(req.params); // to see data implemented when console.log(). ex id = user
+  res.status(204).json({
+    url: "/projects"
+  });
 }); // DELETE
 
 module.exports = router;
