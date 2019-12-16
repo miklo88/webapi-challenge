@@ -19,7 +19,7 @@ router.get("/", (req, res) => {
     });
 }); // READ / GET 0
 
-router.get("/:id", (req, res) => {
+router.get(`/:id`, (req, res) => {
   Projects.get(req.params.id)
     .then(project => {
       res.status(200).json(project);
